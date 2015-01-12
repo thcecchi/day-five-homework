@@ -84,7 +84,6 @@ article {
   background-color: white;
   padding-left: 10%;
   padding-right: 5%;
-  /*min-height: 900px;*/
 }
 
 article h1 {
@@ -201,7 +200,6 @@ aside {
   width: 35%;
   float: left;
   background-color: white;
-  /*min-height: 900px;*/
 }
 
 aside img {
@@ -431,6 +429,103 @@ p.copyrightText {
 .footerNav a:hover {
   color: white;
 }
+
+/*TABLET RESPONSIVE*/
+
+@media screen and (max-width: 600px) {
+  header {
+    width: 100%;
+    background-position: bottom;
+  }
+
+  .topNav ul {
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    left: 180px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  img.spLogo {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 30px;
+    left: 145px;
+  }
+
+  h5.spLogo {
+    display: none;
+  }
+
+  h1.title {
+    font-size: 26px;
+    padding-top: 40px;
+  }
+
+  h5.title {
+    padding-bottom: 20px;
+  }
+
+  article {
+    display: block;
+    width: 90%;
+    /*padding-right: 10%;*/
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blogButtons li {
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  aside {
+    display: block;
+    width: 90%;
+    margin-left: 20px;
+  }
+
+  .aboutAnne {
+    display: none;
+  }
+
+  .popularPosts {
+    width: 90%;
+    margin-left: 20px;
+  }
+
+  .postCover {
+    display: block;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  footer {
+    margin-top: 10px;
+  }
+
+  .footerNav {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-top: 0;
+    width: 75%;
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+/*MOBILE RESPONSIVE*/
 
 @media screen and (max-width: 320px) {
 
