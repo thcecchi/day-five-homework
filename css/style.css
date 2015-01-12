@@ -116,6 +116,12 @@ article h1 {
   font-family: 'PT Sans', Helvetica, Sans-serif;
 }
 
+/*p.on {
+  color: gray;
+  text-decoration: underline;
+  margin-top: -3px;
+}*/
+
 a.blogDate {
   display: inline-block;
   margin-top: 19px;
@@ -552,6 +558,7 @@ p.copyrightText {
     margin-right: auto;
     position: absolute;
     top: 30px;
+    left: 110px;
   }
 
   h5.spLogo {
@@ -614,6 +621,10 @@ p.copyrightText {
     display: none;
   }
 
+  .blogButtons li {
+    display: inline-block;
+  }
+
   #commentsLi::after {
     content: url(../img/bubblesmall.png);
     position: relative;
@@ -672,7 +683,6 @@ p.copyrightText {
 
   .ad {
     width: 100%;
-    margin-left: 20px;
     margin-right: auto;
   }
 
