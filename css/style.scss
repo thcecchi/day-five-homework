@@ -1,6 +1,21 @@
+$subhead-color: #253859;
+
+@mixin col($width) {
+  width: $width;
+  vertical-align: top;
+  display: inline-block;
+}
+
+
 body {
   margin: 0;
   padding: 0;
+}
+
+li {
+  display: inline;
+  text-decoration: none;
+  padding-right: 10px;
 }
 
 header {
@@ -20,47 +35,45 @@ header {
   width: 50%;
   margin-left: 100px;
   font-family: 'PT Sans', Helvetica, sans-serif;
-  color: #253859;
+  color: $subhead-color;
   font-weight: bold;
-}
 
-img.spLogo {
-  display: inline-block;
-  float: left;
-  width: 40px;
-  height: 40px;
-  padding-left: 30px;
-  padding-top: 10px;
-}
+    img {
+      width: 40px;
+      height: 40px;
+      padding-left: 30px;
+      padding-top: 10px;
+    }
 
-.spLogo {
-  display: inline-block;
-  float: left;
-  padding-left: 20px;
+    .spLogo {
+      padding-left: 20px;
+      display: inline-block;
+      float: left;
+    }
 }
 
 .topNav {
   float: left;
+
+  a {
+    text-decoration: none;
+    color: $subhead-color;
+    font-weight: bold;
+    font-family: 'PT Sans', Helvetica, sans-serif;
+
+    &:hover{
+      color: white;
+    }
+  }
+
+  img {
+    height: 20px;
+    width: 20px;
+    float: right;
+  }
 }
 
-.topNav a {
-  text-decoration: none;
-  color: #253859;
-  font-weight: bold;
-  font-family: 'PT Sans', Helvetica, sans-serif;
-}
-
-.topNav a:hover {
-  color: white;
-}
-
-.topNav img {
-  height: 20px;
-  width: 20px;
-  float: right;
-}
-
-.title {
+@mixin title {
   margin: 0;
   width: 100%;
   display: inline-block;
@@ -68,14 +81,16 @@ img.spLogo {
 }
 
 h1.title {
+  @include title;
   padding-top: 160px;
   font-size: 65px;
   font-family: 'PT Sans', Helvetica, sans-serif;
 }
 
 h5.title {
+  @include title;
   padding-bottom: 160px;
-  color: #253859;
+  color: $subhead-color;
 }
 
 article {
@@ -84,42 +99,49 @@ article {
   background-color: white;
   padding-left: 10%;
   padding-right: 5%;
-}
 
-article h1 {
-  font-size: 42px;
-  font-family: 'PT Sans', Helvetica, sans-serif;
-  color: #253859;
-  margin-bottom: 0;
+  h1 {
+    font-size: 42px;
+    font-family: 'PT Sans', Helvetica, sans-serif;
+    color: #253859;
+    margin-bottom: 0;
+  }
+
+  p {
+    line-height: 1.5em;
+    color: #404040;
+  }
 }
 
 .byline {
   width: 100%;
   float: left;
-}
-
-.byline img {
   display: inline-block;
-  float: left;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  margin-top: 15px;
-  margin-right: 15px;
-}
 
-.byline p {
-  display: inline-block;
-  float: left;
-  padding-right: 3px;
-  color: #1875CC;
-  font-family: 'PT Sans', Helvetica, Sans-serif;
+  img {
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin-top: 15px;
+    margin-right: 15px;
+  }
+
+  p {
+    display: inline-block;
+    float: left;
+    padding-right: 3px;
+    color: #1875CC;
+    font-family: 'PT Sans', Helvetica, Sans-serif;
+  }
+
 }
 
 /*p.on {
-  color: gray;
-  text-decoration: underline;
-  margin-top: -3px;
+color: gray;
+text-decoration: underline;
+margin-top: -3px;
 }*/
 
 a.blogDate {
@@ -127,15 +149,10 @@ a.blogDate {
   margin-top: 19px;
   text-decoration: underline;
   color: gray;
-}
 
-a.blogDate:hover {
-  color: lightgray;
-}
-
-article p {
-  line-height: 1.5em;
-  color: #404040;
+  &:hover {
+    color: lightgray;
+  }
 }
 
 blockquote.quote {
@@ -147,24 +164,29 @@ blockquote.quote {
 ul.blogButtons {
   margin-left: -50px;
   display: inline-block;
-}
 
-.blogButtons a {
-  display: inline-block;
-  margin-left: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 1px;
-  background-color: gray;
-  text-decoration: none;
-  color: white;
-  font-family: 'PT Sans', Helvetica, Sans-serif;
+  a {
+    display: inline-block;
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 1px;
+    background-color: gray;
+    text-decoration: none;
+    color: white;
+    font-family: 'PT Sans', Helvetica, Sans-serif;
+
+    &:hover {
+      color: white;
+      background-color: #1875CC;
+    }
+  }
 }
 
 #comments::before {
   content: url(../img/bubblesmall.png);
   position: relative;
-  background: #253859;
+  background: $subhead-color;
   background-size: 800px;
   padding-top: 8px;
   padding-right: 5px;
@@ -176,7 +198,7 @@ ul.blogButtons {
 #readLater::before {
   content: url(../img/cloudsmall.png);
   position: relative;
-  background: #253859;
+  background: $subhead-color;
   background-size: 800px;
   padding-top: 8px;
   padding-right: 5px;
@@ -187,7 +209,7 @@ ul.blogButtons {
 
 #share::before {
   content: url(../img/sharesmall.png);
-  background: #253859;
+  background: $subhead-color;
   background-size: 800px;
   padding-top: 6px;
   padding-right: 5px;
@@ -197,21 +219,36 @@ ul.blogButtons {
 
 }
 
-.blogButtons a:hover {
-  color: white;
-  background-color: #1875CC;
-}
-
 aside {
   width: 35%;
   float: left;
   background-color: white;
-}
 
-aside img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  ul {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+    font-family: 'PT Sans', Helvetica, Sans-serif;
+    color: #1875CC;
+  }
+
+  a {
+    text-decoration: none;
+    color: gray;
+    font-family: 'PT Sans', Helvetica, Sans-serif;
+
+    &:hover {
+      color: #404040;
+    }
+  }
 }
 
 .sideAd {
@@ -219,13 +256,13 @@ aside img {
   margin-left: auto;
   margin-right: auto;
   background: linear-gradient(
-    rgba(30, 144, 255, 0.45),
-    rgba(30, 144, 255, 0.45)
-    ), url("../img/padleboarding.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 320px;
-    height: 300px;
+  rgba(30, 144, 255, 0.45),
+  rgba(30, 144, 255, 0.45)
+  ), url("../img/padleboarding.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 320px;
+  height: 300px;
 }
 
 a.adLink {
@@ -242,20 +279,6 @@ p.adLink:hover {
 }
 
 
-aside ul, h3 {
-  text-align: center;
-}
-
-aside a {
-  text-decoration: none;
-  color: gray;
-  font-family: 'PT Sans', Helvetica, Sans-serif;
-}
-
-aside a:hover {
-  color: #404040;
-}
-
 img.headshot {
   margin-top: 50px;
   height: 75px;
@@ -269,15 +292,10 @@ img.headshot {
   padding-right: 43px;
   line-height: 1.5em;
   color: #404040;
-}
 
-.aboutAnne h3 {
-  text-align: left;
-}
-
-aside h3 {
-  font-family: 'PT Sans', Helvetica, Sans-serif;
-  color: #1875CC;
+  h3 {
+    text-align: left;
+  }
 }
 
 .popularPosts {
@@ -287,108 +305,86 @@ aside h3 {
   display: inline-block;
   font-size: 0px;
   position: relative;
-}
 
-.popularPosts h1 {
-  text-align: center;
-  font-size: 36px;
-  font-family: 'PT Sans', Helvetica, Sans-serif;
-  color: #253859;
-  position: relative;
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    font-family: 'PT Sans', Helvetica, Sans-serif;
+    color: $subhead-color;
+    position: relative;
+  }
 }
 
 .postCover {
-  width: 25%;
+  @include col (25%);
   height: 300px;
-  display: inline-block;
-  vertical-align: top;
-}
+  background-repeat: no-repeat;
+  background-position: center;
 
-.postCover a {
-  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
 
 h4.postTitle {
   display: block;
   font-size: 25px;
   font-family: 'Open Sans', Helvetica, Sans-serif;
-  color: #253859;
+  color: $subhead-color;
   position: relative;
   padding-top: 200px;
   margin-left: 20px;
   text-align: left;
+
+  &:hover {
+    color: white;
+  }
 }
 
-.postTitle:hover {
-  color: white;
-}
 
 #one.postCover {
   background: url("../img/kellyslater.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 #one.postCover:hover {
   background: linear-gradient(
-    rgba(30, 144, 255, 0.45),
-    rgba(30, 144, 255, 0.45)
-    ), url("../img/kellyslater.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  rgba(30, 144, 255, 0.45),
+  rgba(30, 144, 255, 0.45)
+  ), url("../img/kellyslater.jpg");
+}
 
 #two.postCover {
   background: url("../img/beer-flight.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #two.postCover:hover {
   background: linear-gradient(
-    rgba(30, 144, 255, 0.45),
-    rgba(30, 144, 255, 0.45)
-    ),
-    url("../img/beer-flight.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+  rgba(30, 144, 255, 0.45),
+  rgba(30, 144, 255, 0.45)
+  ),
+  url("../img/beer-flight.jpg");
+}
 
 #three.postCover {
   background: url("../img/zach.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #three.postCover:hover {
   background: linear-gradient(
-    rgba(30, 144, 255, 0.45),
-    rgba(30, 144, 255, 0.45)
-    ), url("../img/zach.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-  }
+  rgba(30, 144, 255, 0.45),
+  rgba(30, 144, 255, 0.45)
+  ), url("../img/zach.jpg");
+}
 
 #four.postCover {
   background: url("../img/liquor.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #four.postCover:hover {
   background: linear-gradient(
-    rgba(30, 144, 255, 0.45),
-    rgba(30, 144, 255, 0.45)
-    ), url("../img/liquor.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-li {
-  display: inline;
-  text-decoration: none;
-  padding-right: 10px;
+  rgba(30, 144, 255, 0.45),
+  rgba(30, 144, 255, 0.45)
+  ), url("../img/liquor.jpg");
 }
 
 footer {
@@ -406,15 +402,15 @@ footer {
 .footerLockup {
   display: inline-block;
   vertical-align: top;
-}
 
-p.copyrightText {
-  font-family: 'PT Sans', Helvetica, sans-serif;
-  font-weight: bold;
-  font-size: 12px;
-  display: inline-block;
-  padding-top: 20px;
-  color: gray;
+  p.copyrightText {
+    font-family: 'PT Sans', Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+    padding-top: 20px;
+    color: gray;
+  }
 }
 
 .footerNav {
@@ -422,18 +418,18 @@ p.copyrightText {
   vertical-align: top;
   padding-left: 210px;
   padding-top: 10px;
-}
 
-.footerNav a{
-  font-family: 'PT Sans', Helvetica, sans-serif;
-  font-weight: bold;
-  color: gray;
-  text-decoration: none;
-  font-size: 14px;
-}
+  a {
+    font-family: 'PT Sans', Helvetica, sans-serif;
+    font-weight: bold;
+    color: gray;
+    text-decoration: none;
+    font-size: 14px;
 
-.footerNav a:hover {
-  color: white;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 /*TABLET RESPONSIVE*/
@@ -538,7 +534,7 @@ p.copyrightText {
   header {
     width: 100%;
     background-position: bottom;
-    }
+  }
 
   .topNav ul {
     margin: 0;
@@ -691,22 +687,22 @@ p.copyrightText {
     margin-left: auto;
     margin-right: auto;
     background: linear-gradient(
-      rgba(30, 144, 255, 0.45),
-      rgba(30, 144, 255, 0.45)
-      ), url("../img/padleboarding.png");
+    rgba(30, 144, 255, 0.45),
+    rgba(30, 144, 255, 0.45)
+    ), url("../img/padleboarding.png");
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    }
+  }
 
-    a.adLink {
-      display: block;
-      text-align: right;
-      margin-right: 0;
-      text-decoration: underline;
-      font-size: 14px;
-      color: gray;
-    }
+  a.adLink {
+    display: block;
+    text-align: right;
+    margin-right: 0;
+    text-decoration: underline;
+    font-size: 14px;
+    color: gray;
+  }
 
   .popularPosts {
     width: 90%;
