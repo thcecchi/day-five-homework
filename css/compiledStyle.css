@@ -95,11 +95,11 @@ article {
     color: #1875CC;
     font-family: 'PT Sans', Helvetica, Sans-serif; }
 
-/*p.on {
-color: gray;
-text-decoration: underline;
-margin-top: -3px;
-}*/
+p.on {
+  color: gray;
+  text-decoration: none;
+  margin-top: -3px; }
+
 a.blogDate {
   display: inline-block;
   margin-top: 19px;
@@ -169,7 +169,11 @@ aside {
   aside img {
     display: block;
     margin-left: auto;
-    margin-right: auto; }
+    margin-right: auto;
+    margin-top: 50px;
+    height: 75px;
+    width: 75px;
+    border-radius: 100%; }
   aside ul {
     text-align: center; }
   aside h3 {
@@ -190,6 +194,7 @@ aside {
   background: linear-gradient(rgba(30, 144, 255, 0.45), rgba(30, 144, 255, 0.45)), url("../img/padleboarding.png");
   background-repeat: no-repeat;
   background-position: center;
+  width: 100%;
   width: 320px;
   height: 300px; }
 
@@ -204,12 +209,6 @@ a.adLink {
 p.adLink:hover {
   color: #404040; }
 
-img.headshot {
-  margin-top: 50px;
-  height: 75px;
-  width: 75px;
-  border-radius: 100%; }
-
 .aboutAnne {
   text-align: left;
   padding-left: 50px;
@@ -222,7 +221,7 @@ img.headshot {
 .popularPosts {
   width: 100%;
   background-color: white;
-  border-top: 2px solid gray;
+  border-top: 1px solid gray;
   display: inline-block;
   font-size: 0px;
   position: relative; }
@@ -237,9 +236,9 @@ img.headshot {
   width: 25%;
   vertical-align: top;
   display: inline-block;
-  height: 300px;
   background-repeat: no-repeat;
-  background-position: center; }
+  background-position: center;
+  height: 300px; }
   .postCover a {
     text-decoration: none; }
 
@@ -335,7 +334,7 @@ footer {
     position: relative;
     top: 30px;
     left: 145px; }
-  h5.spLogo {
+  .topLockup h5.spLogo {
     display: none; }
   h1.title {
     font-size: 26px;
@@ -345,7 +344,7 @@ footer {
   article {
     display: block;
     width: 90%;
-    /*padding-right: 10%;*/
+    padding-right: 0;
     margin-left: auto;
     margin-right: auto; }
   .blogButtons li {
@@ -362,7 +361,7 @@ footer {
     margin-left: 20px; }
   .postCover {
     display: block;
-    width: 300px;
+    width: 80%;
     height: 300px;
     margin-left: auto;
     margin-right: auto; }
@@ -400,17 +399,10 @@ footer {
     position: absolute;
     top: 30px;
     left: 110px; }
-  h5.spLogo {
-    display: none; }
   h1.title {
-    font-size: 26px;
     padding-top: 100px; }
-  h5.title {
-    padding-bottom: 20px; }
   article {
     width: 90%;
-    background-color: white;
-    /*height: 900px;*/
     padding-right: 15px;
     padding-left: 15px;
     display: block;
@@ -430,14 +422,15 @@ footer {
     margin-top: 30px;
     margin-bottom: 0; }
   ul.blogButtons {
-    margin-top: 0;
-    position: relative;
-    left: 15px;
-    display: block; }
-  .blogButtons a {
+    margin-top: 5px;
+    display: block;
+    padding-left: 0;
+    margin-left: 5px; }
+  .blogButtons a#comments, a#readLater, a#share {
     display: none; }
   .blogButtons li {
-    display: inline-block; }
+    display: inline-block;
+    width: 100%; }
   #commentsLi::after {
     content: url(../img/bubblesmall.png);
     position: relative;
@@ -471,7 +464,6 @@ footer {
     content: ''; }
   aside {
     width: 90%;
-    /*height: 450px;*/
     display: block; }
   section.aboutAnne {
     display: none; }
@@ -483,39 +475,22 @@ footer {
     width: 100%;
     margin-right: auto; }
   .sideAd {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     background: linear-gradient(rgba(30, 144, 255, 0.45), rgba(30, 144, 255, 0.45)), url("../img/padleboarding.png");
     background-repeat: no-repeat;
     background-position: center;
     width: 100%; }
   a.adLink {
-    display: block;
-    text-align: right;
-    margin-right: 0;
-    text-decoration: underline;
-    font-size: 14px;
-    color: gray; }
+    margin-right: 0; }
   .popularPosts {
-    width: 90%;
-    background-color: white;
-    border-top: 1px solid gray;
-    display: inline-block;
-    margin-left: 20px;
-    margin-top: 10px; }
-  .popularPosts h1 {
-    font-size: 20px;
-    font-family: 'PT Sans', Helvetica, Sans-serif;
-    color: #253859;
-    display: block;
-    margin-right: auto;
-    margin-left: auto; }
+    margin-top: 10px;
+    margin-left: 20px; }
+    .popularPosts h1 {
+      font-size: 20px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto; }
   .postCover {
-    width: 90%;
-    height: 300px;
-    display: block;
-    margin-left: 15px; }
+    width: 90%; }
   h4.postTitle {
     display: block;
     font-size: 25px;
@@ -532,7 +507,7 @@ footer {
   .footerLockup {
     display: block;
     position: relative;
-    top: 50px;
+    top: 75px;
     width: 70%;
     margin-left: 50px; }
   .ironYardLogo {

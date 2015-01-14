@@ -1,11 +1,37 @@
+// @import 'tablet.scss';
+// @import 'mobile.scss';
+
 $subhead-color: #253859;
 
+// <------------MIXINS------------>
 @mixin col($width) {
   width: $width;
   vertical-align: top;
   display: inline-block;
 }
 
+@mixin postCoverMixin ($imgPath: none, $rgba1: rgba(30, 144, 255, 0.45), $rgba2: rgba(30, 144, 255, 0.45)) {
+  background: linear-gradient($rgba1, $rgba2), $imgPath;
+}
+
+@mixin posth4 ($color: $subhead-color) {
+  display: block;
+  font-size: 25px;
+  font-family: 'Open Sans', Helvetica, Sans-serif;
+  color: $color;
+  position: relative;
+  padding-top: 200px;
+  margin-left: 20px;
+  text-align: left;
+}
+
+@mixin backgroundPos () {
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+
+// --------------------------------
 body {
   margin: 0;
   padding: 0;
@@ -18,13 +44,8 @@ li {
 }
 
 header {
-  background: linear-gradient(
-    rgba(4, 94, 184, 0.70),
-    rgba(4, 94, 184, 0.70)
-    ), url("../img/waves.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
+  @include postCoverMixin (url("../img/waves.jpg"), rgba(4, 94, 184, 0.70), rgba(4, 94, 184, 0.70));
+  @include backgroundPos;
   color: white;
 }
 
@@ -137,11 +158,11 @@ article {
 
 }
 
-/*p.on {
+p.on {
 color: gray;
-text-decoration: underline;
+text-decoration: none;
 margin-top: -3px;
-}*/
+}
 
 a.blogDate {
   display: inline-block;
@@ -227,6 +248,10 @@ aside {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
   }
 
   ul {
@@ -254,12 +279,8 @@ aside {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background: linear-gradient(
-  rgba(30, 144, 255, 0.45),
-  rgba(30, 144, 255, 0.45)
-  ), url("../img/padleboarding.png");
-  background-repeat: no-repeat;
-  background-position: center;
+  @include postCoverMixin (url("../img/padleboarding.png"));
+  @include backgroundPos;
   width: 320px;
   height: 300px;
 }
@@ -273,16 +294,9 @@ a.adLink {
   color: gray;
 }
 
+
 p.adLink:hover {
   color: #404040;
-}
-
-
-img.headshot {
-  margin-top: 50px;
-  height: 75px;
-  width: 75px;
-  border-radius: 100%;
 }
 
 .aboutAnne {
@@ -300,7 +314,7 @@ img.headshot {
 .popularPosts {
   width: 100%;
   background-color: white;
-  border-top: 2px solid gray;
+  border-top: 1px solid gray;
   display: inline-block;
   font-size: 0px;
   position: relative;
@@ -316,9 +330,9 @@ img.headshot {
 
 .postCover {
   @include col (25%);
-  height: 300px;
   background-repeat: no-repeat;
   background-position: center;
+  height: 300px;
 
   a {
     text-decoration: none;
@@ -326,30 +340,19 @@ img.headshot {
 }
 
 h4.postTitle {
-  display: block;
-  font-size: 25px;
-  font-family: 'Open Sans', Helvetica, Sans-serif;
-  color: $subhead-color;
-  position: relative;
-  padding-top: 200px;
-  margin-left: 20px;
-  text-align: left;
+  @include posth4;
 
   &:hover {
     color: white;
   }
 }
 
-
 #one.postCover {
   background: url("../img/kellyslater.jpg");
 }
 
 #one.postCover:hover {
-  background: linear-gradient(
-  rgba(30, 144, 255, 0.45),
-  rgba(30, 144, 255, 0.45)
-  ), url("../img/kellyslater.jpg");
+  @include postCoverMixin (url("../img/kellyslater.jpg"));
 }
 
 #two.postCover {
@@ -357,11 +360,7 @@ h4.postTitle {
 }
 
 #two.postCover:hover {
-  background: linear-gradient(
-  rgba(30, 144, 255, 0.45),
-  rgba(30, 144, 255, 0.45)
-  ),
-  url("../img/beer-flight.jpg");
+  @include postCoverMixin (url("../img/beer-flight.jpg"));
 }
 
 #three.postCover {
@@ -369,10 +368,7 @@ h4.postTitle {
 }
 
 #three.postCover:hover {
-  background: linear-gradient(
-  rgba(30, 144, 255, 0.45),
-  rgba(30, 144, 255, 0.45)
-  ), url("../img/zach.jpg");
+  @include postCoverMixin (url("../img/zach.jpg"));
 }
 
 #four.postCover {
@@ -380,10 +376,7 @@ h4.postTitle {
 }
 
 #four.postCover:hover {
-  background: linear-gradient(
-  rgba(30, 144, 255, 0.45),
-  rgba(30, 144, 255, 0.45)
-  ), url("../img/liquor.jpg");
+  @include postCoverMixin (url("../img/liquor.jpg"));
 }
 
 footer {
@@ -460,8 +453,10 @@ footer {
     left: 145px;
   }
 
-  h5.spLogo {
-    display: none;
+  .topLockup {
+    h5.spLogo {
+      display: none;
+    }
   }
 
   h1.title {
@@ -476,9 +471,7 @@ footer {
   article {
     display: block;
     width: 90%;
-    /*padding-right: 10%;*/
-    margin-left: auto;
-    margin-right: auto;
+    padding-right: 0;
   }
 
   .blogButtons li {
@@ -503,7 +496,7 @@ footer {
 
   .postCover {
     display: block;
-    width: 300px;
+    width: 80%;
     height: 300px;
     margin-left: auto;
     margin-right: auto;
@@ -556,23 +549,13 @@ footer {
     left: 110px;
   }
 
-  h5.spLogo {
-    display: none;
-  }
-
   h1.title {
-    font-size: 26px;
     padding-top: 100px
-  }
-
-  h5.title {
-    padding-bottom: 20px;
   }
 
   article {
     width: 90%;
-    background-color: white;
-    /*height: 900px;*/
+    // background-color: white;
     padding-right: 15px;
     padding-left: 15px;
     display: block;
@@ -606,18 +589,19 @@ footer {
   }
 
   ul.blogButtons {
-    margin-top: 0;
-    position: relative;
-    left: 15px;
+    margin-top: 5px;
     display: block;
+    padding-left: 0;
+    margin-left: 5px;
   }
 
-  .blogButtons a {
+  .blogButtons a#comments, a#readLater, a#share {
     display: none;
   }
 
   .blogButtons li {
     display: inline-block;
+    width: 100%;
   }
 
   #commentsLi::after {
@@ -662,7 +646,6 @@ footer {
 
   aside {
     width: 90%;
-    /*height: 450px;*/
     display: block;
   }
 
@@ -682,61 +665,32 @@ footer {
   }
 
   .sideAd {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background: linear-gradient(
-    rgba(30, 144, 255, 0.45),
-    rgba(30, 144, 255, 0.45)
-    ), url("../img/padleboarding.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 100%;
+    @include postCoverMixin (url("../img/padleboarding.png"));
+    @include backgroundPos;
   }
 
   a.adLink {
-    display: block;
-    text-align: right;
     margin-right: 0;
-    text-decoration: underline;
-    font-size: 14px;
-    color: gray;
   }
 
   .popularPosts {
-    width: 90%;
-    background-color: white;
-    border-top: 1px solid gray;
-    display: inline-block;
-    margin-left: 20px;
     margin-top: 10px;
-  }
+    margin-left: 20px;
 
-  .popularPosts h1 {
-    font-size: 20px;
-    font-family: 'PT Sans', Helvetica, Sans-serif;
-    color: #253859;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+    h1 {
+      font-size: 20px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   .postCover {
     width: 90%;
-    height: 300px;
-    display: block;
-    margin-left: 15px;
   }
 
   h4.postTitle {
-    display: block;
-    font-size: 25px;
-    font-family: 'Open Sans', Helvetica, Sans-serif;
-    color: #253859;
-    position: relative;
-    padding-top: 200px;
-    margin-left: 20px;
-    text-align: left;
+    @include posth4;
   }
 
 
@@ -749,7 +703,7 @@ footer {
   .footerLockup {
     display: block;
     position: relative;
-    top: 50px;
+    top: 75px;
     width: 70%;
     margin-left: 50px;
   }
