@@ -344,9 +344,7 @@ footer {
   article {
     display: block;
     width: 90%;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto; }
+    padding-right: 0; }
   .blogButtons li {
     display: block;
     padding-bottom: 10px; }
@@ -507,7 +505,7 @@ footer {
   .footerLockup {
     display: block;
     position: relative;
-    top: 75px;
+    top: 90px;
     width: 70%;
     margin-left: 50px; }
   .ironYardLogo {
@@ -523,7 +521,10 @@ footer {
   .footerNav {
     display: block;
     text-align: center;
-    padding: 0;
     position: relative;
     top: -145px;
-    right: 20px; } }
+    right: 20px; }
+    .footerNav li {
+      font-size: 14px; }
+    .footerNav a {
+      font-size: 12px; } }
